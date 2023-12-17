@@ -17,7 +17,6 @@ Parsed icons set from [materialdesignicons.com](https://materialdesignicons.com/
 - Icon types are **strongly typed** enum, so your **IDE will suggest available variants**:  
 ![895428ad-6010-4ffd-bd88-61aecd50f5e1](https://user-images.githubusercontent.com/29896317/213889827-ca4f7673-115a-433e-9fde-305d55d36772.gif)
 
-## Meta
 #### Getting started
 Install [Material.Icons nuget package](https://www.nuget.org/packages/Material.Icons/):
 ```shell
