@@ -38,7 +38,7 @@ We can resolve an icon path by using `Material.Icons.MaterialIconDataProvider.Ge
 In XAML use control MaterialIcon to show icon
 
 ...
-    xmlns:icons="using:Material.Icons.WinUI"
+    xmlns:icons="using:Material.Icons.UNO"
 
 ....
 
