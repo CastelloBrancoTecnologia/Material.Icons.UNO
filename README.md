@@ -42,5 +42,5 @@ In XAML use control MaterialIcon to show icon
 
 ....
 
-    &lt;icons:MaterialIcon Width="24" Height="24" Margin="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Black" Kind="PersonTie" /&gt;
+    <icons:MaterialIcon Width="24" Height="24" Margin="4" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="Black" Kind="PersonTie" />
 
