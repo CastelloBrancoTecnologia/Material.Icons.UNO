@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">net8.0-windows10.0.19041</TargetFrameworks>
+	  <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">net8.0-windows10.0.26100.0</TargetFrameworks>
 	  <TargetFrameworks>
 		  net8.0;
 		  net8.0-android;
@@ -17,20 +17,24 @@
     <Copyright>Castello Branco Tecnologia LTDA</Copyright>
     <PackageProjectUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</RepositoryUrl>
+    <AssemblyVersion>2410.6.0050.5</AssemblyVersion>
+	<WindowsSdkPackageVersion>10.0.26100.38</WindowsSdkPackageVersion>
+	<Version>1.0.2</Version>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 	
   <ItemGroup>
-    <PackageReference Include="Material.Icons" Version="2.1.9" />
-    <PackageReference Include="Uno.WinUI" Version="5.2.112" />
+    <PackageReference Include="Material.Icons" Version="2.1.10" />
+    <PackageReference Include="Uno.WinUI" Version="5.4.27" />
   </ItemGroup>
 	
   <Choose>
     <When Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
       <ItemGroup>
-        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240428000" />
-        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
+        <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.240923002" />
+        <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
       </ItemGroup>
-      <ItemGroup>
+		<ItemGroup>
         <!--
 				If you encounter this error message:
 
@@ -59,6 +63,13 @@
 	
   <ItemGroup>
     <UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
     <Target Name="PushNuGetPackage" AfterTargets="GenerateNuspec">
