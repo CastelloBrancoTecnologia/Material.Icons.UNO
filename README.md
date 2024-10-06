@@ -1,7 +1,6 @@
+# Castello Branco Tecnologia - Material.Icons
 
-This projet is UNO/WinUI3 Version of MaterialIcon control 
-
-of project https://github.com/SKProCH/Material.Icons
+This projet is UNO/WinUI3 Version of MaterialIcon control of project https://github.com/SKProCH/Material.Icons
 
 Special thanks to https://github.com/SKProCH
 
