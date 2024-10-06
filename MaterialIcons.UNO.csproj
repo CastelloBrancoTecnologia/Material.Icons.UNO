@@ -1,0 +1,83 @@
+<Project Sdk="Uno.Sdk">
+  <PropertyGroup>
+        <TargetFrameworks>net8.0;net8.0-ios;net8.0-maccatalyst;net8.0-android;net8.0-windows10.0.19041;net8.0-browserwasm;net8.0-desktop</TargetFrameworks>
+        <UnoSingleProject>true</UnoSingleProject>
+        <OutputType>Library</OutputType>
+	    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+	    <Title>Material.Icons.UNO</Title>
+        <Authors>Castello Branco Tecnologia</Authors>
+        <Description>Icones Material Design para UNO e WinUI</Description>
+        <Copyright>Castello Branco Tecnologia LTDA</Copyright>
+        <PackageProjectUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</RepositoryUrl>
+    	<Title>Material.Icons.UNO</Title>
+    	<Authors>Castello Branco Tecnologia</Authors>
+	    <Description>Icones Material Design para UNO e WinUI</Description>
+	    <Copyright>Castello Branco Tecnologia LTDA</Copyright>
+	    <PackageProjectUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</PackageProjectUrl>
+	    <RepositoryUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</RepositoryUrl>
+        <SignAssembly>True</SignAssembly>
+        <AssemblyOriginatorKeyFile>C:\Users\cesar\Documents\GitHub\CastelloBranco\MaterialIcons.UNO\key.snk</AssemblyOriginatorKeyFile>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Version>1.0.4</Version>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <IncludeSymbols>True</IncludeSymbols>
+
+	    <!-- UnoFeatures let's you quickly add and manage implicit package references based on the features you want to use. -->
+	    <!-- https://aka.platform.uno/singleproject-features -->
+        <!--
+        <UnoFeatures></UnoFeatures>
+        -->
+  </PropertyGroup>
+
+  <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">
+    <!--
+    If you encounter this error message:
+
+      error NETSDK1148: A referenced assembly was compiled using a newer version of Microsoft.Windows.SDK.NET.dll.
+      Please update to a newer .NET SDK in order to reference this assembly.
+
+    This means that the two packages below must be aligned with the "build" version number of
+    the "Microsoft.Windows.SDK.BuildTools" package above, and the "revision" version number
+    must be the highest found in https://www.nuget.org/packages/Microsoft.Windows.SDK.NET.Ref.
+    -->
+    <!-- <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" RuntimeFrameworkVersion="10.0.22621.28" />
+    <FrameworkReference Update="Microsoft.Windows.SDK.NET.Ref" TargetingPackVersion="10.0.22621.28" /> -->
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\MaterialIcons.UNO\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\MaterialIcons.UNO\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+      <ItemGroup>
+        <PackageReference Include="Material.Icons" Version="2.1.10" />
+        <PackageReference Include="Uno.WinUI" Version="5.4.27" />
+      </ItemGroup>	
+	
+    <ItemGroup>
+	    <PackageReference Include="Material.Icons" Version="2.1.10" />
+	    <PackageReference Include="Uno.WinUI" Version="5.4.27" />
+    </ItemGroup>
+
+	<ItemGroup>
+    <None Update="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+	
+    <Target Name="PushNuGetPackage" AfterTargets="GenerateNuspec">
+	    <Message Text="Push NuGet Package to NuGet Feed" Importance="high"></Message>
+	    <Exec Command="$(ProjectDir)..\publicanuget.cmd &quot;$(ProjectDir)bin\$(Configuration)\$(AssemblyName).$(Version).nupkg&quot; "></Exec>
+    </Target>	
+</Project>
