@@ -17,10 +17,10 @@
     <Copyright>Castello Branco Tecnologia LTDA</Copyright>
     <PackageProjectUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CastelloBrancoTecnologia/Material.Icons.UNO</RepositoryUrl>
-    <AssemblyVersion>2410.6.0346.18</AssemblyVersion>
+    <AssemblyVersion>2410.6.0350.20</AssemblyVersion>
 	<WindowsSdkPackageVersion>10.0.26100.38</WindowsSdkPackageVersion>
-	<Version>1.0.4</Version>
-	<PackageReadmeFile></PackageReadmeFile>
+	<Version>1.0.5</Version>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 	
   <ItemGroup>
